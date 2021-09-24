@@ -13,9 +13,7 @@ class Priority:
             priority = int(input(f"Enter Priority for Process {process_id}: "))
 
             temporary.extend([process_id, arrival_time, burst_time, priority, 0, burst_time])
-            '''
-            '0' is the state of the process. 0 means not executed and 1 means execution complete
-            '''
+            
             process_data.append(temporary)
         Priority.schedulingProcess(self, process_data)
 
@@ -25,9 +23,7 @@ class Priority:
         s_time = 0
         sequence_of_process = []
         process_data.sort(key=lambda x: x[1])
-        '''
-        Sort processes according to the Arrival Time
-        '''
+
         while 1:
             ready_queue = []
             normal_queue = []
@@ -83,37 +79,27 @@ class Priority:
         total_turnaround_time = 0
         for i in range(len(process_data)):
             turnaround_time = process_data[i][6] - process_data[i][5]
-            '''
-            turnaround_time = completion_time - arrival_time
-            '''
+            
             total_turnaround_time = total_turnaround_time + turnaround_time
             process_data[i].append(turnaround_time)
         average_turnaround_time = total_turnaround_time / len(process_data)
-        '''
-        average_turnaround_time = total_turnaround_time / no_of_processes
-        '''
+        
         return average_turnaround_time
 
     def calculateWaitingTime(self, process_data):
         total_waiting_time = 0
         for i in range(len(process_data)):
             waiting_time = process_data[i][6] - process_data[i][2]
-            '''
-            waiting_time = turnaround_time - burst_time
-            '''
+            
             total_waiting_time = total_waiting_time + waiting_time
             process_data[i].append(waiting_time)
         average_waiting_time = total_waiting_time / len(process_data)
-        '''
-        average_waiting_time = total_waiting_time / no_of_processes
-        '''
+        
         return average_waiting_time
 
     def printData(self, process_data, average_turnaround_time, average_waiting_time, sequence_of_process):
         process_data.sort(key=lambda x: x[0])
-        '''
-        Sort processes according to the Process ID
-        '''
+        
         print("Process_ID\tArrival_Time\tRem_Burst_Time\tPriority\tCompleted\tOrig_Burst_Time\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):

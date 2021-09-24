@@ -10,9 +10,7 @@ class SJF:
 
             burst_time = int(input(f"Enter Burst Time for Process {process_id}: "))
             temporary.extend([process_id, arrival_time, burst_time, 0])
-            '''
-            '0' is the state of the process. 0 means not executed and 1 means execution complete
-            '''
+            
             process_data.append(temporary)
         SJF.schedulingProcess(self, process_data)
 
@@ -21,9 +19,7 @@ class SJF:
         exit_time = []
         s_time = 0
         process_data.sort(key=lambda x: x[1])
-        '''
-        Sort processes according to the Arrival Time
-        '''
+        
         for i in range(len(process_data)):
             ready_queue = []
             temp = []
@@ -41,9 +37,7 @@ class SJF:
 
             if len(ready_queue) != 0:
                 ready_queue.sort(key=lambda x: x[2])
-                '''
-                Sort the processes according to the Burst Time
-                '''
+                
                 start_time.append(s_time)
                 s_time = s_time + ready_queue[0][2]
                 e_time = s_time
@@ -76,15 +70,11 @@ class SJF:
         total_turnaround_time = 0
         for i in range(len(process_data)):
             turnaround_time = process_data[i][4] - process_data[i][1]
-            '''
-            turnaround_time = completion_time - arrival_time
-            '''
+            
             total_turnaround_time = total_turnaround_time + turnaround_time
             process_data[i].append(turnaround_time)
         average_turnaround_time = total_turnaround_time / len(process_data)
-        '''
-        average_turnaround_time = total_turnaround_time / no_of_processes
-        '''
+        
         return average_turnaround_time
 
 
@@ -92,23 +82,17 @@ class SJF:
         total_waiting_time = 0
         for i in range(len(process_data)):
             waiting_time = process_data[i][5] - process_data[i][2]
-            '''
-            waiting_time = turnaround_time - burst_time
-            '''
+            
             total_waiting_time = total_waiting_time + waiting_time
             process_data[i].append(waiting_time)
         average_waiting_time = total_waiting_time / len(process_data)
-        '''
-        average_waiting_time = total_waiting_time / no_of_processes
-        '''
+        
         return average_waiting_time
 
 
     def printData(self, process_data, average_turnaround_time, average_waiting_time):
         process_data.sort(key=lambda x: x[0])
-        '''
-        Sort processes according to the Process ID
-        '''
+        
         print("Process_ID\tArrival_Time\tBurst_Time\tCompleted\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
 
         for i in range(len(process_data)):

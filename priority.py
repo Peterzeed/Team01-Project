@@ -6,14 +6,14 @@ class Priority:
             temporary = []
             process_id = int(input("Enter Process ID: "))
 
-            arrival_time = int(input(f"Enter Arrival Time for Process {process_id}: "))
+            arrival_time = int(input("Enter Arrival Time for Process {process_id}: "))
 
-            burst_time = int(input(f"Enter Burst Time for Process {process_id}: "))
+            burst_time = int(input("Enter Burst Time for Process {process_id}: "))
 
-            priority = int(input(f"Enter Priority for Process {process_id}: "))
+            priority = int(input("Enter Priority for Process {process_id}: "))
 
             temporary.extend([process_id, arrival_time, burst_time, priority, 0, burst_time])
-            
+           
             process_data.append(temporary)
         Priority.schedulingProcess(self, process_data)
 
@@ -23,7 +23,7 @@ class Priority:
         s_time = 0
         sequence_of_process = []
         process_data.sort(key=lambda x: x[1])
-
+        
         while 1:
             ready_queue = []
             normal_queue = []
@@ -52,7 +52,7 @@ class Priority:
                     if process_data[k][0] == ready_queue[0][0]:
                         break
                 process_data[k][2] = process_data[k][2] - 1
-                if process_data[k][2] == 0:       #if burst time is zero, it means process is completed
+                if process_data[k][2] == 0:      
                     process_data[k][4] = 1
                     process_data[k].append(e_time)
             if len(ready_queue) == 0:
@@ -68,7 +68,7 @@ class Priority:
                     if process_data[k][0] == normal_queue[0][0]:
                         break
                 process_data[k][2] = process_data[k][2] - 1
-                if process_data[k][2] == 0:        #if burst time is zero, it means process is completed
+                if process_data[k][2] == 0:        
                     process_data[k][4] = 1
                     process_data[k].append(e_time)
         t_time = Priority.calculateTurnaroundTime(self, process_data)
@@ -79,11 +79,11 @@ class Priority:
         total_turnaround_time = 0
         for i in range(len(process_data)):
             turnaround_time = process_data[i][6] - process_data[i][5]
-            
+         
             total_turnaround_time = total_turnaround_time + turnaround_time
             process_data[i].append(turnaround_time)
         average_turnaround_time = total_turnaround_time / len(process_data)
-        
+       
         return average_turnaround_time
 
     def calculateWaitingTime(self, process_data):
@@ -94,7 +94,7 @@ class Priority:
             total_waiting_time = total_waiting_time + waiting_time
             process_data[i].append(waiting_time)
         average_waiting_time = total_waiting_time / len(process_data)
-        
+      
         return average_waiting_time
 
     def printData(self, process_data, average_turnaround_time, average_waiting_time, sequence_of_process):
@@ -115,6 +115,17 @@ class Priority:
 
 
 if __name__ == "__main__":
-    no_of_processes = int(input("Enter number of processes: "))
+
+    no_of_processes = int(input("Enter number of processes[1-10]: "))
+    while no_of_processes < 1:
+        print("Try Again")
+        no_of_processes = int(input("No of Process [1-10]: "))
+        print("")
+    while no_of_processes > 10:
+        print("Try Again")
+        no_of_processes = int(input("No of Process [1-10]: "))
+        print("")
+
     priority = Priority()
     priority.processData(no_of_processes)
+   

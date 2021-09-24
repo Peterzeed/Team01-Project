@@ -150,7 +150,7 @@ class RoundRobin:
         print(f'Sequence of Processes: {executed_process}')
 
 
-if __name__ == "__main__":
-    no_of_processes = int(input("Enter number of processes: "))
-    rr = RoundRobin()
-    rr.processData(no_of_processes)
+# if __name__ == "__main__":
+#     no_of_processes = int(input("Enter number of processes: "))
+#     rr = RoundRobin()
+#     rr.processData(no_of_processes)

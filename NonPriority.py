@@ -74,18 +74,18 @@ class NonPriority:
         print(f'Average Waiting Time: {average_waiting_time}')
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     
-    print("")
-    print("********Non-Preemptive Scheduling***********")
-    no_of_processes = int(input("Enter number of processes[1-10]: "))
-    while no_of_processes < 1:
-        print("Try Again")
-        no_of_processes = int(input("No of Process [1-10]: "))
-        print("")
-    while no_of_processes > 10:
-        print("Try Again")
-        no_of_processes = int(input("No of Process [1-10]: "))
-        print("")
-    priority = NonPriority()
-    priority.processData(no_of_processes)
+#     print("")
+#     print("======Non-Preemptive Scheduling=======")
+#     no_of_processes = int(input("Enter number of processes[1-10]: "))
+#     while no_of_processes < 1:
+#         print("Try Again")
+#         no_of_processes = int(input("No of Process [1-10]: "))
+#         print("")
+#     while no_of_processes > 10:
+#         print("Try Again")
+#         no_of_processes = int(input("No of Process [1-10]: "))
+#         print("")
+#     priority = NonPriority()
+#     priority.processData(no_of_processes)

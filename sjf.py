@@ -10,7 +10,7 @@ class SJF:
 
             burst_time = int(input(f"Enter Burst Time for Process {process_id}: "))
             temporary.extend([process_id, arrival_time, burst_time, 0])
-            
+            print("=================================")
             process_data.append(temporary)
         SJF.schedulingProcess(self, process_data)
 
@@ -93,12 +93,11 @@ class SJF:
     def printData(self, process_data, average_turnaround_time, average_waiting_time):
         process_data.sort(key=lambda x: x[0])
         
-        print("Process_ID\tArrival_Time\tBurst_Time\tCompleted\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
+        print("Process_ID\t|\tArrival_Time\t|\tBurst_Time\t|\tCompleted\t|\tCompletion Time\t|\tTurnaround Time\t|\tWaiting Time\t|")
 
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):
-
-                print(process_data[i][j], end="\t\t")
+                print(process_data[i][j], end="\t\t|\t")
             print()
 
         print(f'Average Turnaround Time: {average_turnaround_time}')
@@ -106,7 +105,7 @@ class SJF:
         print(f'Average Waiting Time: {average_waiting_time}')
 
 
-if __name__ == "__main__":
-    no_of_processes = int(input("Enter number of processes: "))
-    sjf = SJF()
-    sjf.processData(no_of_processes)
+# if __name__ == "__main__":
+#     no_of_processes = int(input("Enter number of processes: "))
+#     sjf = SJF()
+#     sjf.processData(no_of_processes)

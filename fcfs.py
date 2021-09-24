@@ -1,13 +1,15 @@
 class FCFS :
     
     def Calcurate(n):
-        print("FIRST COME FIRST SERVE SCHEDULLING")
+        
         d = dict()
  
         for i in range(n):
             key = "P"+str(i+1)
+            print("Process "+key)
             a = int(input("Enter arrival time of process"+str(i+1)+": "))
             b = int(input("Enter burst time of process"+str(i+1)+": "))
+            print("==================================")
             l = []
             l.append(a)
             l.append(b)
@@ -37,23 +39,16 @@ class FCFS :
         for i in WT:
             avg_WT +=i
         avg_WT = (avg_WT/n)
- 
-        print("Process | Arrival | Burst | Exit | Turn Around | Wait |")
+
+        avg_TT=0
+        for i in TAT:
+            avg_TT +=i
+        avg_TT=(avg_TT/n)
+
+        print("\tProcess\t|\tArrival\t|\tBurst Time\t|\tCompletion Time\t|\tTurnAround Time\t|\tWaiting Time\t|")
         for i in range(n):
-            print("   ",d[i][0],"   |   ",d[i][1][0]," |    ",d[i][1][1]," |    ",ET[i],"  |    ",TAT[i],"  |   ",WT[i],"   |  ")
+            print("\t",d[i][0],"\t|\t",d[i][1][0],"\t|\t",d[i][1][1],"\t\t|\t",ET[i],"\t\t|\t",TAT[i],"\t\t|\t",WT[i],"\t\t|")
         print("Average Waiting Time: ",avg_WT)
-
-if __name__ == "__main__" :
-    
-    n= int(input("Enter number of processes : "))
-    while n < 1:
-        print("Try Again")
-        n = int(input("No of Process [1-10]: "))
-        print("")
-    while n > 10:
-        print("Try Again")
-        n = int(input("No of Process [1-10]: "))
-        print("")
-
-    fcfs = FCFS()
-    FCFS.Calcurate(n)
+        print("Average Turnaround Time: ",avg_TT)
+# if __name__ == "__main__" :
+#     fcfs = FCFS()

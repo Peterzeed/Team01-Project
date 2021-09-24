@@ -100,11 +100,10 @@ class Priority:
     def printData(self, process_data, average_turnaround_time, average_waiting_time, sequence_of_process):
         process_data.sort(key=lambda x: x[0])
         
-        print("Process_ID\tArrival_Time\tRem_Burst_Time\tPriority\tCompleted\tBurst_Time\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
+        print("Process_ID  |  Arrival Time  |  Remaining Burst Time  |   Priority   |   Completed   |   Burst Time   |  Completion Time  |  Turnaround Time  |  Waiting_Time  |")
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):
-
-                print(process_data[i][j], end="\t\t")
+                print(process_data[i][j], end="\t\t      ")
             print()
 
         print(f'Average Turnaround Time: {average_turnaround_time}')
@@ -114,18 +113,18 @@ class Priority:
         print(f'Sequence of Process: {sequence_of_process}')
 
 
-if __name__ == "__main__":
-    print("=======================================")
-    print("===Priority Scheduling====")
-    no_of_processes = int(input("Enter number of processes: "))
-    while no_of_processes < 1:
-        print("Try Again")
-        no_of_processes = int(input("Number of Process must be [1-10]: "))
-        print("")
-    while no_of_processes > 10:
-        print("Try Again")
-        no_of_processes = int(input("Number of Process must be [1-10]: "))
-        print("")
+# if __name__ == "__main__":
+#     print("=======================================")
+#     print("===Priority Scheduling====")
+#     no_of_processes = int(input("Enter number of processes: "))
+#     while no_of_processes < 1:
+#         print("Try Again")
+#         no_of_processes = int(input("Number of Process must be [1-10]: "))
+#         print("")
+#     while no_of_processes > 10:
+#         print("Try Again")
+#         no_of_processes = int(input("Number of Process must be [1-10]: "))
+#         print("")
 
-    priority = Priority()
-    priority.processData(no_of_processes)
+#     priority = Priority()
+#     priority.processData(no_of_processes)

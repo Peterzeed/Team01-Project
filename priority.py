@@ -128,3 +128,4 @@ if __name__ == "__main__":
 
     priority = Priority()
     priority.processData(no_of_processes)
+   

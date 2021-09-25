@@ -7,8 +7,8 @@ class FCFS :
         for i in range(n):
             key = "P"+str(i+1)
             print("Process "+key)
-            a = int(input("Enter arrival time of process"+str(i+1)+": "))
-            b = int(input("Enter burst time of process"+str(i+1)+": "))
+            a = int(input("Enter Arrival Time for Process"+str(i+1)+": "))
+            b = int(input("Enter Burst Time for Process"+str(i+1)+": "))
             print("==================================")
             l = []
             l.append(a)

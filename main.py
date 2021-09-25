@@ -1,91 +1,118 @@
+from sjf import SJF
 from rr import RoundRobin
 from priority import Priority
-from NonPriority import NonPriority
-from sjf import SJF
+from non_Priority import NonPriority
+from non_sjf import Non_SJF
 from fcfs import FCFS
 
 
 class main:
     print("Welcome to Process Scheduler ")
-    print("Process Scheduler :\n1.FCFS\n2.SJF\n3.Preemptive Priority\n4.Non-Preemptive Priority\n5.Round Robin")
-    process = int(input("Choose Process Scheduler (1/2/3/4/5): "))
+    conti = 'y'
+    while conti == 'y' :
+        print("Process Scheduler :\n1.FCFS\n2.Shortest job first\n3.Preemptive Priority\n4.Non-Preemptive Priority\n5.Round Robin")
+        process = int(input("Choose Process Scheduler (1/2/3/4/5): "))
 
-    if process==1:
-        print("===FIRST COME FIRST SERVE SCHEDULLING===")
-        n= int(input("Enter number of processes : "))
-        while n < 1:
-            print("Try Again")
-            n = int(input("No of Process [1-10]: "))
-            print("")
-        while n > 10:
-            print("Try Again")
-            n = int(input("No of Process [1-10]: "))
-            print("")
+        if process==1:
+            print("===FIRST COME FIRST SERVE SCHEDULLING===")
+            n= int(input("Enter number of processes[1-10]: "))
+            while n < 1:
+                print("Try Again")
+                n = int(input("No of Process [1-10]: "))
+                print("")
+            while n > 10:
+                print("Try Again")
+                n = int(input("No of Process [1-10]: "))
+                print("")
 
-        fcfs = FCFS()
-        FCFS.Calcurate(n)
+            fcfs = FCFS()
+            FCFS.Calcurate(n)
 
         # p1.Calcurate()
-    elif process==2:
-        print("===Shortest job first===")
-        no_of_processes= int(input("Enter number of processes : "))
-        while no_of_processes < 1:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
-        while no_of_processes > 10:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
-
-        sjf = SJF()
-        sjf.processData(no_of_processes)
-
-    elif process==3:
-        print("=======================================")
-        print("===Priority Scheduling====")
-        no_of_processes = int(input("Enter number of processes: "))
-        while no_of_processes < 1:
-            print("Try Again")
-            no_of_processes = int(input("Number of Process must be [1-10]: "))
-            print("")
-        while no_of_processes > 10:
-            print("Try Again")
-            no_of_processes = int(input("Number of Process must be [1-10]: "))
-            print("")
-
-        priority = Priority()
-        priority.processData(no_of_processes)
-    
-    elif process==4:
-        print("")
-        print("======Non-Preemptive Scheduling=======")
-        no_of_processes = int(input("Enter number of processes[1-10]: "))
-        while no_of_processes < 1:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
-        while no_of_processes > 10:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
-        Nonpriority = NonPriority()
-        Nonpriority.processData(no_of_processes)
-    
-    elif process==5:
-        no_of_processes = int(input("Enter number of processes: "))
-        while no_of_processes < 1:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
-        while no_of_processes > 10:
-            print("Try Again")
-            no_of_processes = int(input("No of Process [1-10]: "))
-            print("")
+        elif process==2:
+            print("===Shortest job first===")
+            preem_choose = int(input("1.Non-preemptive\n2.Preempttive\nChoose(1/2) : "))
+            print("=======================================")
+            if(preem_choose == 1):
+                print("Non-Preemptive Shortest job first")
+                no_of_processes= int(input("Enter number of processes[1-10]: "))
+                while no_of_processes < 1:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                while no_of_processes > 10:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                non_sjf = Non_SJF()
+                non_sjf.processData(no_of_processes)
         
-        rr = RoundRobin()
-        rr.processData(no_of_processes)
+            if(preem_choose == 2):
+                print("Preemptive Shortest job first")
+                no_of_processes= int(input("Enter number of processes[1-10]: "))
+                while no_of_processes < 1:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                while no_of_processes > 10:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                sjf = SJF()
+                sjf.processData(no_of_processes)   
+        
+        
+        # elif(preem_choose != 2 or preem_choose != 1) : print("Please Choose 1 or 2")  
+
+        elif process==3:
+            print("===Priority Scheduling====")
+            preem_choose = int(input("1.Non-preemptive\n2.Preempttive\nChoose(1/2) : "))
+            no_of_processes = int(input("Enter number of processes: "))
+            print("=======================================")
+            if(preem_choose == 1):
+                print("======Non-Preemptive Priority=======")
+                no_of_processes = int(input("Enter number of processes[1-10]: "))
+                while no_of_processes < 1:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                while no_of_processes > 10:
+                    print("Try Again")
+                    no_of_processes = int(input("No of Process [1-10]: "))
+                    print("")
+                non_priority = NonPriority()
+                non_priority.processData(no_of_processes)    
+        
+            if(preem_choose == 2):
+                print("======Non-Preemptive Priority=======")
+                no_of_processes = int(input("Enter number of processes[1-10]: "))
+                while no_of_processes < 1:
+                    print("Try Again")
+                    no_of_processes = int(input("Number of Process must be [1-10]: "))
+                    print("")
+                while no_of_processes > 10:
+                    print("Try Again")
+                    no_of_processes = int(input("Number of Process must be [1-10]: "))
+                    print("")
+                priority = Priority()
+                priority.processData(no_of_processes)
+    
+        elif process==4:
+            no_of_processes = int(input("Enter number of processes[1-10]: "))
+            while no_of_processes < 1:
+                print("Try Again")
+                no_of_processes = int(input("Number of Process [1-10]: "))
+                print("")
+            while no_of_processes > 10:
+                print("Try Again")
+                no_of_processes = int(input("Nuber of Process [1-10]: "))
+                print("")
+        
+            rr = RoundRobin()
+            rr.processData(no_of_processes)
     
     
-    else:
-         print("Please Choose 1/2/3/4/5")
+        else:
+            print("Please Choose 1/2/3/4/5")
+
+        conti =str(input("Do you want to continue (y/n): "))

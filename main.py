@@ -7,7 +7,7 @@ from fcfs import FCFS
 
 
 class main:
-    print("Welcome to Process Scheduler ")
+    print("Welcome to Process Scheduler")
     conti = 'y'
     while conti == 'y' :
         print("Process Scheduler :\n1.FCFS\n2.Shortest job first\n3.Priority\n4.Round Robin")

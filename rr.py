@@ -14,7 +14,7 @@ class RoundRobin:
             
             process_data.append(temporary)
 
-        time_slice = int(input("Enter Time Slice: "))
+        time_slice = int(input("Enter Time Quantum: "))
 
         RoundRobin.schedulingProcess(self, process_data, time_slice)
 

@@ -50,5 +50,7 @@ class FCFS :
             print("\t",d[i][0],"\t|\t",d[i][1][0],"\t|\t",d[i][1][1],"\t\t|\t",ET[i],"\t\t|\t",TAT[i],"\t\t|\t",WT[i],"\t\t|")
         print("Average Waiting Time: ",avg_WT)
         print("Average Turnaround Time: ",avg_TT)
+
+
 # if __name__ == "__main__" :
 #     fcfs = FCFS()

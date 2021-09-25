@@ -96,7 +96,7 @@ class SJF:
         print("Process ID | Arrival Time | Remaining BurstTime | Completed | Burst Time | Completion Time | Turnaround Time | Waiting Time |")
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):
-                print(process_data[i][j], end="\t\t     ")
+                print(process_data[i][j], end="\t\t  ")
             print()
         print(f'Average Turnaround Time: {average_turnaround_time}')
         print(f'Average Waiting Time: {average_waiting_time}')

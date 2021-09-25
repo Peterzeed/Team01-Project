@@ -4,7 +4,7 @@ class Priority:
         process_data = []
         for i in range(no_of_processes):
             temporary = []
-            process_id = int(input("Enter Process ID: "))
+            process_id = int(input("EEEEnter Process ID: "))
 
             arrival_time = int(input(f"Enter Arrival Time for Process {process_id}: "))
 
@@ -100,10 +100,10 @@ class Priority:
     def printData(self, process_data, average_turnaround_time, average_waiting_time, sequence_of_process):
         process_data.sort(key=lambda x: x[0])
         
-        print("Process_ID  |  Arrival Time  |  Remaining Burst Time  |   Priority   |   Completed   |   Burst Time   |  Completion Time  |  Turnaround Time  |  Waiting_Time  |")
+        print("Process ID| Arrival Time | Remaining Burst Time | Priority | Completed | Burst Time |Completion Time|Turnaround Time| WaitingTime |")
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):
-                print(process_data[i][j], end="\t\t      ")
+                print(process_data[i][j], end="\t\t")
             print()
 
         print(f'Average Turnaround Time: {average_turnaround_time}')

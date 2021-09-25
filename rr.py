@@ -9,7 +9,7 @@ class RoundRobin:
             arrival_time = int(input(f"Enter Arrival Time for Process {process_id}: "))
 
             burst_time = int(input(f"Enter Burst Time for Process {process_id}: "))
-
+            print("=======================================")
             temporary.extend([process_id, arrival_time, burst_time, 0, burst_time])
             
             process_data.append(temporary)
@@ -136,7 +136,7 @@ class RoundRobin:
     def printData(self, process_data, average_turnaround_time, average_waiting_time, executed_process):
         process_data.sort(key=lambda x: x[0])
         
-        print("Process_ID\tArrival_Time\tRem_Burst_Time\tCompleted\tBurst_Time\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
+        print("Process ID | Arrival Time |Remaining Burst Time|Completed| Burst Time | Completion Time |Turnaround Time | WaitingTime |")
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):
 

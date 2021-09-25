@@ -10,7 +10,7 @@ class main:
     print("Welcome to Process Scheduler ")
     conti = 'y'
     while conti == 'y' :
-        print("Process Scheduler :\n1.FCFS\n2.Shortest job first\n3.Preemptive Priority\n4.Non-Preemptive Priority\n5.Round Robin")
+        print("Process Scheduler :\n1.FCFS\n2.Shortest job first\n3.Priority\n4.Round Robin")
         process = int(input("Choose Process Scheduler (1/2/3/4/5): "))
 
         if process==1:
@@ -66,8 +66,7 @@ class main:
 
         elif process==3:
             print("===Priority Scheduling====")
-            preem_choose = int(input("1.Non-preemptive\n2.Preempttive\nChoose(1/2) : "))
-            no_of_processes = int(input("Enter number of processes: "))
+            preem_choose = int(input("1.Preemptive\n2.Non-Preempttive\nChoose(1/2) : "))
             print("=======================================")
             if(preem_choose == 1):
                 print("======Non-Preemptive Priority=======")
@@ -80,8 +79,8 @@ class main:
                     print("Try Again")
                     no_of_processes = int(input("Number of Process [1-10]: "))
                     print("")
-                non_priority = NonPriority()
-                non_priority.processData(no_of_processes)    
+                priority = Priority()
+                priority.processData(no_of_processes)    
         
             if(preem_choose == 2):
                 print("======Non-Preemptive Priority=======")
@@ -94,10 +93,11 @@ class main:
                     print("Try Again")
                     no_of_processes = int(input("Number of Process must be [1-10]: "))
                     print("")
-                priority = Priority()
-                priority.processData(no_of_processes)
+                non_priority = NonPriority()
+                non_priority.processData(no_of_processes)
     
         elif process==4:
+            print("======Round Robin=======")
             no_of_processes = int(input("Enter number of processes[1-10]: "))
             while no_of_processes < 1:
                 print("Try Again")

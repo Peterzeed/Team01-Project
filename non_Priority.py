@@ -62,7 +62,7 @@ class NonPriority:
     def printData(self, process_data, average_turnaround_time, average_waiting_time):
         process_data.sort(key=lambda x: x[0])
         
-        print("Process_ID\tArrival_Time\tBurst_Time\tPriority\tCompletion_Time\tTurnaround_Time\tWaiting_Time")
+        print("Process ID | Arrival Time | Burst Time | Priority | Completion Time | Turnaround Time | Waiting Time |")
 
         for i in range(len(process_data)):
             for j in range(len(process_data[i])):

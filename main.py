@@ -74,11 +74,11 @@ class main:
                 no_of_processes = int(input("Enter number of processes[1-10]: "))
                 while no_of_processes < 1:
                     print("Try Again")
-                    no_of_processes = int(input("No of Process [1-10]: "))
+                    no_of_processes = int(input("Number of Process [1-10]: "))
                     print("")
                 while no_of_processes > 10:
                     print("Try Again")
-                    no_of_processes = int(input("No of Process [1-10]: "))
+                    no_of_processes = int(input("Number of Process [1-10]: "))
                     print("")
                 non_priority = NonPriority()
                 non_priority.processData(no_of_processes)    
